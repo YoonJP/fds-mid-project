@@ -8,7 +8,84 @@
   <link rel="stylesheet" href="./index.scss">
 </head>
 <body>
-  <!-- 템플릿을 이곳에 작성해주세요. -->
+  <!-- Login form -->
+  <template id="login-form">
+    <form class="login-form">
+      <input type="text" name="username">
+      <input type="password" name="password">
+      <button>Login</button>
+    </form>
+  </template>
+
+  <!-- Post List  -->
+  <template id="post-list">
+    <div class="buttons">
+      <button class="logout">Log Out</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <td>번호</td>
+          <td>제목</td>
+        </tr>
+      </thead>
+      <tbody class="post-list">
+      </tbody>
+    </table>
+  </template>
+
+  <!-- Post item in Post List -->
+  <template id="post-item">
+    <tr class="post-item">
+      <td class="id"></td>
+      <td class="title"></td>
+      <td class="author"></td>
+    </tr>
+  </template>
+
+<!--
+  <template id="post-form">
+    <form class="post-form">
+      <div class="field">
+        <label>제목</label>
+        <input class="title" type="text" name="title">
+      </div>
+      <div class="field">
+        <label>내용</label>
+        <textarea class="body" name="body" cols="30" rows="10"></textarea>
+      </div>
+      <button>전송</button>
+      <button class="back">뒤로</button>
+    </form>
+  </template>
+
+
+  <template id="post-detail">
+    <div class="buttons">
+      <button class="delete">삭제</button>
+      <button class="update">수정</button>
+      <button class="back">뒤로</button>
+    </div>
+    <div class="post-detail">
+      <h2 class="title"></h2>
+      <p class="author-wrap">작성자: <span class="author"></span></p>
+      <p class="body"></p>
+    </div>
+    <form class="comment-form">
+      <input class="body" type="text" name="body">
+      <button>전송</button>
+    </form>
+    <ul class="comment-list"></ul>
+  </template>
+
+  <template id="comment-item">
+    <li class="comment-item">
+      <span class="author"></span>:
+      <span class="body"></span>
+      <button class="delete">삭제</button>
+    </li>
+  </template> -->
+
 
   <div class="root"></div>
   <script src="./index.js"></script>
