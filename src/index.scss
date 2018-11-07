@@ -1,9 +1,20 @@
-$main-color: skyblue;
+$main-color: white;
 
 body {
   background-color: $main-color;
 }
 
+.container {
+
+}
+
+.logo{
+  position: absolute;
+  top: 50px;
+  left: 65px;
+}
+
+// Templates
 .post-item {
   .title {
     cursor: pointer;
