@@ -13,7 +13,7 @@
   <!-- 템플릿을 이곳에 작성해주세요 -->
   <template id="layout">
     <div class="appbar">
-      <div class="appbar__left">BARNES & NOBLE</div>
+      <div class="appbar__left logo">BARNES & NOBLE</div>
       <div class="appbar__right">
         <div class="appbar__link sign-in">SIGN IN</div>
         <div class="appbar__link sign-up">SIGN UP</div>
@@ -25,6 +25,7 @@
       <div class="navbar__link all">ALL</div>
       <div class="navbar__link fiction">FICTION</div>
       <div class="navbar__link nonfiction">NONFICTION</div>
+      <div class="navbar__link programming-languages">PROGRAMMING LANGUAGES</div>
     </nav>
     <main class="main"></main>
   </template>
@@ -53,7 +54,9 @@
     <div class="product-item">
       <img class="main-image" />
       <div class="title"></div>
-      <div class="author"></div>
+      <div class="author-wrap">by
+        <span class="author"></span>
+      </div>
     </div>
   </template>
 
@@ -62,7 +65,9 @@
       <div class="product-info">
         <img class="main-image" />
         <div class="title"></div>
-        <div class="author"></div>
+        <div class="author-wrap">by
+          <span class="author"></span>
+        </div>
       </div>
       <form class="cart-form">
         <label>

@@ -119,14 +119,25 @@ table {
 
 $main-color: white;
 
+.hidden {
+  display: none;
+}
+
 body {
   background-color: $main-color;
+  width: 100%;
+}
+
+// Root
+.root {
+  // background-color: skyblue;
 }
 
 .product-item {
   cursor: pointer;
 }
 
+// App bar & Nav bar link
 .appbar__link,
 .navbar__link {
   cursor: pointer;
@@ -135,18 +146,25 @@ body {
   }
 }
 
+// Application bar
 .appbar {
   background-color: silver;
-  max-width: 100%;
+  width: 100%;
   height: 67px;
 }
 
-.appbar__left {
+.logo {
+  cursor: pointer;
   position: absolute;
   color: #2c5a35;
   top: 10px;
   left: 0px;
   font-size: 30pt;
+  // font-family: 'Noto Sans', sans-serif;
+}
+
+.title {
+  font-size: 17pt;
 }
 
 .appbar__right {
@@ -160,12 +178,38 @@ body {
   margin-right: 15px;
 }
 
+
+// Navigation bar
 .navbar {
   display: flex;
+  justify-content: center;
+  background-color:#c8dbe1;
 }
 
 .navbar__link {
   margin-right: 30px;
+}
+
+// Main
+.main {
+  width: 100%;
+  // background-color: pink;
+}
+
+.main-image {
+  &:hover {
+    border: 1px solid green;
+    // background-color: rgba(0, 0, 0, 0.5);
+  }
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  // flex-wrap: wrap;
+
+  // background-color: yellow;
 }
 
 .detail-text {
@@ -181,9 +225,18 @@ body {
   margin-bottom: 20px;
 }
 
-.main-image {
-  &:hover {
-    border: 1px solid green;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+
+
+
+
+.product-item {
+  // display: flex;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 20px;
+  // background-color: rgb(133, 101, 133);
 }
+
+
+

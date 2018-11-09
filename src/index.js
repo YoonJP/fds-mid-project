@@ -38,8 +38,9 @@ const rootEl = document.querySelector(".root");
 // 6. 템플릿을 문서에 삽입
 
 // fragment를 받아서 layout에 넣은 다음 rootEl에 그려주는 함수
-function drawFragment(frag) {
+async function drawFragment(frag) {
   const layoutFrag = document.importNode(templates.layout, true);
+  const logoEl = layoutFrag.querySelector('.logo');
   const mainEl = layoutFrag.querySelector(".main");
   const signUpEl = layoutFrag.querySelector(".sign-up");
   const signInEl = layoutFrag.querySelector(".sign-in");
@@ -48,7 +49,28 @@ function drawFragment(frag) {
   const allEl = layoutFrag.querySelector(".all");
   const fictionEl = layoutFrag.querySelector(".fiction");
   const nonfictionEl = layoutFrag.querySelector(".nonfiction");
+  const progLangEl = layoutFrag.querySelector('.programming-languages')
 
+  if (localStorage.getItem('token')) {
+    try {
+      const { data: username } = await api.get('/me')
+      signInEl.classList.add('hidden')
+      signUpEl.classList.add('hidden')
+      signOutEl.classList.remove('hidden')
+    } catch (e) {
+      alert('유효하지 않은 토큰입니다. 다시 로그인해주세요.')
+      localStorage.removeItem('token')
+      drawLoginForm()
+      return
+    }
+  } else {
+    signInEl.classList.remove('hidden')
+    signUpEl.classList.remove('hidden')
+  }
+
+  logoEl.addEventListener("click", e => {
+    drawProductList();
+  })
   signUpEl.addEventListener("click", e => {
     drawRegisterForm();
   });
@@ -57,7 +79,7 @@ function drawFragment(frag) {
   });
   signOutEl.addEventListener("click", e => {
     localStorage.removeItem("token");
-    drawLoginForm();
+    drawProductList();
   });
   cartEl.addEventListener("click", e => {
     drawCartList();
@@ -72,6 +94,9 @@ function drawFragment(frag) {
   });
   nonfictionEl.addEventListener("click", e => {
     drawProductList("nonfiction");
+  });
+  progLangEl.addEventListener("click", e => {
+    drawProductList("programming languages");
   });
 
   mainEl.appendChild(frag);
@@ -90,9 +115,7 @@ async function drawLoginForm() {
     e.preventDefault();
     const username = e.target.elements.username.value;
     const password = e.target.elements.password.value;
-    const {
-      data: { token }
-    } = await api.post("/users/login", {
+    const { data: { token } } = await api.post("/users/login", {
       username,
       password
     });
