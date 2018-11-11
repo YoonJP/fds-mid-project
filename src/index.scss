@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700");
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 
 /* 스타일 초기화 */
 html,
@@ -126,10 +127,14 @@ $main-color: white;
 body {
   background-color: $main-color;
   width: 100%;
+  font-family: 'Lato', sans-serif;
 }
 
 // Root
 .root {
+  width: 1024px;
+  margin: 0 auto;
+
   // background-color: skyblue;
 }
 
@@ -148,30 +153,50 @@ body {
 
 // Application bar
 .appbar {
+  display: flex;
+  justify-content: space-between;
   background-color: silver;
   width: 100%;
   height: 67px;
+
 }
 
 .logo {
   cursor: pointer;
-  position: absolute;
+  position: relative;
   color: #2c5a35;
   top: 10px;
-  left: 0px;
-  font-size: 30pt;
-  // font-family: 'Noto Sans', sans-serif;
+  left: 10px;
+  // font-size: 30pt;
+  // font-family: 'Times';
+  font-family: 'Lato', sans-serif;
+  font-size: 25pt;
+  font-weight: 900;
+  width: 300px;
+  // background-color: olivedrab;
 }
 
-.title {
-  font-size: 17pt;
+.barnes,
+.noble {
+}
+
+.and {
+  color: #a4a4a4;
+  font-family: 'Times';
+  font-weight: 400;
+  // transform:scale(2, 1)
 }
 
 .appbar__right {
   display: flex;
-  position: absolute;
-  top: 25px;
+  justify-content: flex-end;
+  position: relative;
+  top: 35%;
   right: 0px;
+  bottom: 10px;
+  font-family: 'Lato', sans-serif;
+  width: 500px;
+  // background-color: blue;
 }
 
 .appbar__link {
@@ -184,10 +209,13 @@ body {
   display: flex;
   justify-content: center;
   background-color:#c8dbe1;
+  margin-bottom: 50px;
+  // width: 900px;
 }
 
 .navbar__link {
   margin-right: 30px;
+  font-size: 9pt;
 }
 
 // Main
@@ -198,18 +226,105 @@ body {
 
 .main-image {
   &:hover {
-    border: 1px solid green;
+    outline: 1px solid #3b7b58;
+    outline-offset: 10px;
+    // border: 1px solid green;
     // background-color: rgba(0, 0, 0, 0.5);
   }
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.2);
 }
+
+.author-wrap {
+  font-size: 14px;
+}
+
+.author {
+  color: #3b7252;
+}
+
+// Product-list
 
 .product-list {
   display: flex;
-  flex-direction: column;
+  // flex-direction: row;
+  flex-wrap: wrap;
+  align-items: space-around;
   // flex-wrap: wrap;
-
+  padding: 20px;
+  // padding-left: 200px;
+  // padding-right: 200px;
   // background-color: yellow;
+}
+
+.product-list .product-item {
+  // display: flex;
+  // flex-direction: column;
+  width: 200px;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 0 40px 80px;
+  background-color: rgb(133, 101, 133);
+
+}
+
+.product-list .title {
+  margin-top: 15px;
+  font-size: 15pt;
+  // font-family: 'Times';
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  // background-color: yellow;
+}
+
+
+
+// Product-detail
+
+.product-detail {
+
+}
+
+.product-info {
+  // display: flex;
+
+}
+
+.product-detail .title {
+  font-size: 27px;
+  font-family: 'Times';
+  width: 512px;
+  background-color:greenyellow;
+
+}
+
+.product-detail .author-wrap {
+  width: 512px;
+  height: 50px;
+  background-color: skyblue;
+}
+
+.product-detail .title,
+.product-detail .author-wrap {
+  // background-color: yellow;
+  float: right;
+}
+
+.product-detail .main-image {
+  padding: 20px 150px 20px;
+  margin-right: 150px;
+  background-color: palevioletred;
+}
+
+.cart-form {
+  width: 512px;
+  background-color: #3b7b58;
+}
+
+.total-wrap {
+  width: 512px;
+  background-color: #a4a4a4;
 }
 
 .detail-text {
@@ -225,18 +340,13 @@ body {
   margin-bottom: 20px;
 }
 
-
-
-
-
-.product-item {
-  // display: flex;
-  // flex-direction: column;
-  flex-wrap: wrap;
-  text-align: center;
-  margin: 20px;
-  // background-color: rgb(133, 101, 133);
+.formats-text, .quantity-text {
+  font-size: 12px;
 }
 
+.overview {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+}
 
 

@@ -46,6 +46,7 @@ async function drawFragment(frag) {
   const signInEl = layoutFrag.querySelector(".sign-in");
   const signOutEl = layoutFrag.querySelector(".sign-out");
   const cartEl = layoutFrag.querySelector(".cart");
+  const orderEl = layoutFrag.querySelector('.order');
   const allEl = layoutFrag.querySelector(".all");
   const fictionEl = layoutFrag.querySelector(".fiction");
   const nonfictionEl = layoutFrag.querySelector(".nonfiction");
@@ -57,6 +58,7 @@ async function drawFragment(frag) {
       signInEl.classList.add('hidden')
       signUpEl.classList.add('hidden')
       signOutEl.classList.remove('hidden')
+      orderEl.classList.remove('hidden')
     } catch (e) {
       alert('유효하지 않은 토큰입니다. 다시 로그인해주세요.')
       localStorage.removeItem('token')
@@ -64,6 +66,9 @@ async function drawFragment(frag) {
       return
     }
   } else {
+    signOutEl.classList.add('hidden')
+    cartEl.classList.add('hidden');
+    orderEl.classList.add('hidden')
     signInEl.classList.remove('hidden')
     signUpEl.classList.remove('hidden')
   }
@@ -295,6 +300,7 @@ async function drawCartList() {
     const optionEl = frag.querySelector(".option");
     const quantityEl = frag.querySelector(".quantity");
     const priceEl = frag.querySelector(".price");
+    const deleteEl = frag.querySelector(".delete");
 
     const option = optionList.find(o => o.id === cartItem.optionId);
 
@@ -305,9 +311,16 @@ async function drawCartList() {
     quantityEl.textContent = cartItem.quantity;
     priceEl.textContent = parseInt(cartItem.quantity) * option.price;
 
+    deleteEl.addEventListener('click', async e => {
+      await api.delete(`/cartItems/${cartItem.id}`);
+      console.log(`/cartItems/${cartItem.id}`);
+      drawCartList()
+    })
+
     cartListEl.appendChild(frag);
   }
   // 5. 이벤트 리스너 등록하기
+
   // 6. 템플릿을 문서에 삽입
   drawFragment(frag);
 }
