@@ -21,7 +21,6 @@ const templates = {
   productList: document.querySelector("#product-list").content,
   productItem: document.querySelector("#product-item").content,
   productDetail: document.querySelector("#product-detail").content,
-  // overview: document.querySelector("#overview").content,
   detailImage: document.querySelector("#detail-image").content,
   cartList: document.querySelector("#cart-list").content,
   cartItem: document.querySelector("#cart-item").content
@@ -51,6 +50,7 @@ async function drawFragment(frag) {
   const fictionEl = layoutFrag.querySelector(".fiction");
   const nonfictionEl = layoutFrag.querySelector(".nonfiction");
   const progLangEl = layoutFrag.querySelector('.programming-languages')
+  const footerEl = layoutFrag.querySelector('.footer')
 
   if (localStorage.getItem('token')) {
     try {
@@ -107,6 +107,7 @@ async function drawFragment(frag) {
   mainEl.appendChild(frag);
   rootEl.textContent = "";
   rootEl.appendChild(layoutFrag);
+  window.scrollTo(0, 0);
 }
 
 async function drawRegisterForm() { }
@@ -229,7 +230,7 @@ async function drawProductDetail(productId) {
   for (const { id, title, price } of options) {
     const optionEl = document.createElement("option");
     optionEl.setAttribute("value", id);
-    optionEl.textContent = `${title} (${price}원)`;
+    optionEl.textContent = `${title} ($${price})`;
     selectEl.appendChild(optionEl);
   }
 
@@ -243,7 +244,7 @@ async function drawProductDetail(productId) {
     // 수량을 가져온다.
     const quantity = parseInt(quantityEl.value);
     // 총액을 계산해서 표시한다.
-    totalEl.textContent = option.price * quantity;
+    totalEl.textContent = `$${option.price * quantity}`;
   }
   selectEl.addEventListener("change", calculateTotal);
   quantityEl.addEventListener("input", calculateTotal);
@@ -257,7 +258,7 @@ async function drawProductDetail(productId) {
       quantity,
       orderId: -1
     });
-    if (confirm("장바구니에 담긴 상품을 확인하시겠습니까?")) {
+    if (confirm("Do you want to check your cart?")) {
       drawCartList();
     } else {
       drawProductList();
@@ -309,7 +310,7 @@ async function drawCartList() {
     authorEl.textContent = option.product.author;
     optionEl.textContent = option.title;
     quantityEl.textContent = cartItem.quantity;
-    priceEl.textContent = parseInt(cartItem.quantity) * option.price;
+    priceEl.textContent = `$${parseInt(cartItem.quantity) * option.price}`;
 
     deleteEl.addEventListener('click', async e => {
       await api.delete(`/cartItems/${cartItem.id}`);

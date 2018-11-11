@@ -14,7 +14,7 @@
   <template id="layout">
     <div class="appbar">
       <div class="appbar__left logo">
-        <span class="barnes">BARNES</span>
+        <span class="barnes">FAST</span>
         <span class="and">&</span>
         <span class="noble">NOBLE</span>
       </div>
@@ -34,6 +34,10 @@
       <div class="navbar__link nonfiction">Nonfiction</div>
       <div class="navbar__link programming-languages">Programming languages</div>
     </nav>
+    <!-- <footer class="footer">
+      ©2018 Fast & Noble Booksellers, Inc.
+      <br>Seongsui-ro, Seongdong-gu, Seoul, Republic of Korea
+    </footer> -->
     <main class="main"></main>
   </template>
 
@@ -100,39 +104,14 @@
     </div>
   </template>
 
-  <!--
-      <template id="overview">
-        <div class="overview"></div>
-      </template>
-    -->
-
   <template id="detail-image">
     <img class="detail-image" />
   </template>
 
   <template id="cart-list">
-    <h1>장바구니</h1>
+    <h1 class="cart-head">CART</h1>
     <div class="cart-list"></div>
   </template>
-  <!-- <template id="cart-list">
-    <h1>장바구니</h1>
-
-    <table class="cart-table">
-      <thead>
-        <tr>
-          <td>
-            <input type="checkbox" class="checkbox-all" checked>
-          </td>
-          <td>대표 이미지</td>
-          <td>상품 설명</td>
-          <td>수량</td>
-          <td>삭제</td>
-        </tr>
-      </thead>
-      <tbody class="cart-list"></tbody>
-    </table>
-    <button class="order">선택 상품 주문하기</button>
-  </template> -->
 
   <template id="cart-item">
     <div class="cart-item">
@@ -142,35 +121,9 @@
       <div class="option"></div>
       <div class="quantity"></div>
       <div class="price"></div>
-      <button class="delete">삭제</button>
+      <button class="delete">Remove</button>
     </div>
   </template>
-
-  <!-- <template id="cart-item">
-    <tr class="cart-item">
-      <td>
-        <input type="checkbox" class="checkbox" checked>
-      </td>
-      <td>
-        <img class="main-image">
-      </td>
-      <td>
-        <div class="title"></div>
-        <div class="option"></div>
-        <div class="price"></div>
-      </td>
-      <td>
-        <form class="quantity-form">
-          <input type="number" name="quantity" class="quantity">
-          <button>수정</button>
-        </form>
-      </td>
-      <td>
-        <button class="delete">삭제</button>
-      </td>
-    </tr>
-  </template> -->
-
 
   <div class="root"></div>
   <script src="./index.js"></script>
